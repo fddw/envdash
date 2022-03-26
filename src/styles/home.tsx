@@ -10,3 +10,10 @@ export const Container = styled.div`
   padding: 0 0.5rem;
   background-color: seagreen;
 `;
+
+export const Content = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  width: 100%;
+`;
