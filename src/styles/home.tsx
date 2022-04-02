@@ -1,19 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   min-height: 100vh;
-  padding: 0 0.5rem;
-  background-color: seagreen;
+  margin: 2rem;
+`;
+
+export const Title = styled.h1`
+  text-align: center;
 `;
 
 export const Content = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
   width: 100%;
 `;
