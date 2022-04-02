@@ -22,8 +22,8 @@ const Home: NextPage = () => {
       <Container>
         <Title>Environment Dashboard</Title>
         <Content>
-          {data?.environments.map((item: Environment) => (
-            <Card key={item.name} name={item.name} state={item.state} />
+          {data?.environments.map((env: Environment) => (
+            <Card key={env.name} data={env} />
           ))}
         </Content>
       </Container>
