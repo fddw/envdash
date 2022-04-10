@@ -1,16 +1,20 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { Container, Content, Title } from "../styles/home";
-import useSWR from "swr";
-import Card from "../components/Card";
-import { Environment } from "../Interfaces/Environemnts";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import useSWR from 'swr';
+import { ToastContainer } from 'react-toastify';
+
+import Card from '../components/Card';
+import { Environment } from '../Interfaces/Environemnts';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { Container, Content, Title } from '../styles/home';
 
 const fetcher = (...args: Parameters<typeof fetch>) =>
   fetch(...args).then((response) => response.json());
 
 const Home: NextPage = () => {
   const url = `${process.env.ENDPOINT}/api/v1.0/environments`;
-  const { data } = useSWR(url, fetcher);
+  const { data } = useSWR(url, fetcher, { refreshInterval: 20000 });
 
   return (
     <>
@@ -26,6 +30,7 @@ const Home: NextPage = () => {
             <Card key={env.name} data={env} />
           ))}
         </Content>
+        <ToastContainer />
       </Container>
     </>
   );
